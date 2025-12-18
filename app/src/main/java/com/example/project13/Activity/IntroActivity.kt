@@ -18,5 +18,5 @@ class IntroActivity : BaseActivity() {
         }
 
 
-    }
+        }
 }

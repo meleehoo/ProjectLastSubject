@@ -1,5 +1,6 @@
 package com.example.project13.Activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
@@ -28,14 +29,22 @@ class MainActivity : BaseActivity() {
     private val viewModel = MainViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initBanner()
         initCategory()
         initBestSeller()
+        initBottomMenu()
     }
 
-//    private fun initBestSeller() {
+    private fun initBottomMenu() {
+        binding.btnCart.setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+        }
+    }
+
+    //    private fun initBestSeller() {
 //        binding.progressBarBestSeller.visibility = View.VISIBLE
 //
 //        binding.RecyclerViewBestSeller.layoutManager = GridLayoutManager(this, 2)

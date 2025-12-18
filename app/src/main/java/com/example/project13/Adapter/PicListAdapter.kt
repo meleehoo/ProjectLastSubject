@@ -39,7 +39,7 @@ class PicListAdapter(val items: MutableList<String>, private val onImageSlected:
             onImageSlected(item)
         }
         if (selectedPosition == position){
-            holder.binding.picListLayout.setBackgroundResource(R.drawable.brown_bg_selected)
+            holder.binding.picListLayout.setBackgroundResource(R.drawable.grey_bg_selected)
         } else{
             holder.binding.picListLayout.setBackgroundResource(R.drawable.grey_bg)
         }

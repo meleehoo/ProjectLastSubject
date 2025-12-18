@@ -39,13 +39,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/btnFavarite"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnFav"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/btnFavarite"
+                    app:layout_constraintTop_toTopOf="@+id/btnFav"
                     app:srcCompat="@drawable/back" />
 
                 <ImageView
-                    android:id="@+id/btnFavarite"
+                    android:id="@+id/btnFav"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="48dp"
@@ -157,7 +157,7 @@
                     app:srcCompat="@drawable/star" />
 
                 <TextView
-                    android:id="@+id/tvCount"
+                    android:id="@+id/tvRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -166,7 +166,7 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/sizeList"
+                android:id="@+id/weightList"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="12dp"
@@ -175,7 +175,7 @@
                 android:clipToPadding="false" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/tvDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Description"

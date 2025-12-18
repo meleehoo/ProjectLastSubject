@@ -25,17 +25,19 @@ class SelectWeightAdapter(val items: MutableList<String>): RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: SelectWeightAdapter.Viewholder, position: Int) {
         holder.binding.tvWeight.text = items[position]
+
         holder.binding.root.setOnClickListener {
             LastSelectedPostion = selectedPosition
+            selectedPosition = position
             notifyItemChanged(LastSelectedPostion)
             notifyItemChanged(selectedPosition)
         }
         if(selectedPosition == position){
-            holder.binding.WeightLayout.setBackgroundResource(R.drawable.brown_bg_selected)
-            holder.binding.tvWeight.setTextColor(context.resources.getColor(R.color.lightbrown))
+            holder.binding.weightLayout.setBackgroundResource(R.drawable.brown_bg_selected)
+            holder.binding.tvWeight.setTextColor(context.resources.getColor(R.color.white))
         }else{
-            holder.binding.WeightLayout.setBackgroundResource(R.drawable.white_bg)
-            holder.binding.tvWeight.setTextColor(context.resources.getColor(R.color.grey))
+            holder.binding.weightLayout.setBackgroundResource(R.drawable.grey_bg)
+            holder.binding.tvWeight.setTextColor(context.resources.getColor(R.color.black))
         }
     }
 
