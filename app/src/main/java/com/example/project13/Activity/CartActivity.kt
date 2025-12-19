@@ -1,12 +1,15 @@
 package com.example.project13.Activity
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.project13.Adapter.CartAdapter
 import com.example.project13.Helper.ChangeNumberItemsListener
 import com.example.project13.Helper.ManagmentCart
+
 import com.example.project13.databinding.ActivityCartBinding
 import kotlin.math.round
 
@@ -15,6 +18,7 @@ class CartActivity : BaseActivity() {
     private lateinit var binding: ActivityCartBinding
     private val managmentCart by lazy { ManagmentCart(this) }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCartBinding.inflate(layoutInflater)
@@ -22,6 +26,9 @@ class CartActivity : BaseActivity() {
         setContentView(binding.root)
 
         binding.btnBack.setOnClickListener { finish() }
+        binding.btnCheckOut.setOnClickListener {
+            showCheckoutDialog()
+        }
 
         initCartList()
         updateUI()
@@ -53,7 +60,6 @@ class CartActivity : BaseActivity() {
     private fun updateUI() {
         val hasItems = managmentCart.getListCart().isNotEmpty()
 
-        // Hiện/ẩn trạng thái rỗng
         binding.tvEmptyCart.visibility = if (hasItems) View.GONE else View.VISIBLE
         binding.ScrollViewLayout.visibility = if (hasItems) View.VISIBLE else View.VISIBLE
         binding.viewCart.visibility = if (hasItems) View.VISIBLE else View.GONE
@@ -74,4 +80,19 @@ class CartActivity : BaseActivity() {
             tvTotal.text = "$$total"
         }
     }
+    private fun showCheckoutDialog(){
+        AlertDialog.Builder(this)
+            .setTitle("Confirm checkout")
+            .setMessage("Do you want to checkout and clear your cart?")
+            .setPositiveButton("YES") { _, _ ->
+                managmentCart.clearCart()
+                Toast.makeText(this, "Checkout successful", Toast.LENGTH_SHORT).show()
+
+                initCartList()
+                updateUI()
+            }
+            .setNegativeButton("NO", null)
+            .show()
+    }
+
 }

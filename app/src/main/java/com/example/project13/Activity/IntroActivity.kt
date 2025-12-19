@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.project13.databinding.ActivityIntroBinding
+import kotlin.jvm.java
 
 class IntroActivity : BaseActivity() {
     private lateinit var binding : ActivityIntroBinding
@@ -14,9 +15,7 @@ class IntroActivity : BaseActivity() {
         binding = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnStart.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
-
-
         }
 }
